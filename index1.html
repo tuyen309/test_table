@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách học sinh</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Danh sách học sinh</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Họ và tên</th>
+      <th>Giới tính</th>
+      <th>Ngày sinh</th>
+      <th>Lớp</th>
+      <th>Địa chỉ</th>
+      <th>Điểm số</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Dữ liệu ngẫu nhiên được tạo bằng JavaScript -->
+    <script>
+        // Hàm để tạo một số ngẫu nhiên trong phạm vi từ min đến max
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        
+        // Số lượng học sinh
+        var numberOfStudents = 10;
+        
+        // Tạo dữ liệu ngẫu nhiên cho bảng
+        for (var i = 1; i <= numberOfStudents; i++) {
+            document.write('<tr>');
+            document.write('<td>' + i + '</td>');
+            document.write('<td>Học sinh ' + i + '</td>');
+            document.write('<td>' + (i % 2 === 0 ? 'Nam' : 'Nữ') + '</td>');
+            var randomYear = randomNumber(2000, 2010);
+            var randomMonth = randomNumber(1, 12);
+            var randomDay = randomNumber(1, 28); // Giả sử tháng 2 không nhuận
+            var randomDate = new Date(randomYear, randomMonth, randomDay);
+            var formattedDate = randomDate.toLocaleDateString('vi-VN');
+            document.write('<td>' + formattedDate + '</td>');
+            document.write('<td>Lớp ' + randomNumber(1, 12) + '</td>');
+            document.write('<td>Địa chỉ ' + i + '</td>');
+            document.write('<td>' + randomNumber(1, 10) + '</td>');
+            document.write('</tr>');
+        }
+    </script>
+  </tbody>
+</table>
+
+</body>
+</html>
