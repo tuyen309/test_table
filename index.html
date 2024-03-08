@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách học sinh</title>
+    <title>Student List</title>
     <style>
         table {
             width: 100%;
@@ -21,45 +21,45 @@
 </head>
 <body>
 
-<h2>Danh sách học sinh</h2>
+<h2>Student List</h2>
 
 <table>
   <thead>
     <tr>
       <th>ID</th>
-      <th>Họ và tên</th>
-      <th>Giới tính</th>
-      <th>Ngày sinh</th>
-      <th>Lớp</th>
-      <th>Địa chỉ</th>
-      <th>Điểm số</th>
+      <th>Full Name</th>
+      <th>Gender</th>
+      <th>Date of Birth</th>
+      <th>Class</th>
+      <th>Address</th>
+      <th>Score</th>
     </tr>
   </thead>
   <tbody>
-    <!-- Dữ liệu ngẫu nhiên được tạo bằng JavaScript -->
+    <!-- Random data generated using JavaScript -->
     <script>
-        // Hàm để tạo một số ngẫu nhiên trong phạm vi từ min đến max
+
         function randomNumber(min, max) {
             return Math.floor(Math.random() * (max - min) + min);
         }
         
-        // Số lượng học sinh
+
         var numberOfStudents = 10;
         
-        // Tạo dữ liệu ngẫu nhiên cho bảng
+
         for (var i = 1; i <= numberOfStudents; i++) {
             document.write('<tr>');
             document.write('<td>' + i + '</td>');
-            document.write('<td>Học sinh ' + i + '</td>');
-            document.write('<td>' + (i % 2 === 0 ? 'Nam' : 'Nữ') + '</td>');
+            document.write('<td>Student ' + i + '</td>');
+            document.write('<td>' + (i % 2 === 0 ? 'Male' : 'Female') + '</td>');
             var randomYear = randomNumber(2000, 2010);
             var randomMonth = randomNumber(1, 12);
-            var randomDay = randomNumber(1, 28); // Giả sử tháng 2 không nhuận
+            var randomDay = randomNumber(1, 28); 
             var randomDate = new Date(randomYear, randomMonth, randomDay);
-            var formattedDate = randomDate.toLocaleDateString('vi-VN');
+            var formattedDate = randomDate.toLocaleDateString('en-US');
             document.write('<td>' + formattedDate + '</td>');
-            document.write('<td>Lớp ' + randomNumber(1, 12) + '</td>');
-            document.write('<td>Địa chỉ ' + i + '</td>');
+            document.write('<td>Class ' + randomNumber(1, 12) + '</td>');
+            document.write('<td>Address ' + i + '</td>');
             document.write('<td>' + randomNumber(1, 10) + '</td>');
             document.write('</tr>');
         }
